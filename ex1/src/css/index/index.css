@@ -1,0 +1,133 @@
+:root {
+    /* ------ Colours ----- */
+    --brown: #846e5b;
+    --dark-brown: #494039; 
+    --darker-brown: #261d12;
+    --beige: #d1d1c8;
+    --off-beige: #b59972;
+    --off-white: #d2d2d2;
+    /* ----- Spacing ----- */
+    --default-spacing: 1rem;
+    --sm-space: 0.5rem;
+    /* ----- Corners ----- */
+    --sm-corner: 0.5rem
+}
+
+
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--darker-brown);
+    color: var(--beige);
+    margin: 1rem;
+    margin-top: var(--default-spacing);
+    margin-left: var(--default-spacing);
+    margin-right: var(--default-spacing);
+    border-radius: var(--sm-corner);
+    border: 1px solid var(--off-beige);
+}
+
+.tavern-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--darker-brown);
+    color: var(--beige);
+    border-radius: var(--sm-corner);
+    border: 1px solid var(--darker-brown);
+    padding: var(--sm-space);
+}
+
+body {
+    margin: 0px;
+    background-color: var(--brown);
+}
+
+.container {
+    padding: var(--default-spacing);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.section-content {
+    background-color: var(--dark-brown);
+    border-radius: var(--sm-corner);
+    padding: var(--default-spacing);
+    display: flex;
+    flex-direction: column;
+}
+
+.section-content table {
+    color: var(--off-white);
+    border-color: black;
+    border-collapse: collapse;
+    background-color: var(--darker-brown);
+}
+
+.section-content table th ,  td {
+    padding: 0.5rem;
+    border: 1px solid black
+} 
+
+.center {align-self: center;}
+.beige {color: var(--beige);}
+.underline {text-decoration: underline;}
+
+.section-content img {
+    max-width: 100%;  /* Ensures it never exceeds its container */
+    width: 50%;
+    height: auto;      /* Maintains aspect ratio */
+    display: block;    /* Removes extra spacing below the image */
+    margin: 0 auto;    /* Centers it if needed */
+  }
+  
+
+.tavern-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm-space);
+}
+
+.tavern-menu-item {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    border-radius: var(--sm-corner);
+    background-color: var(--dark-brown);
+}
+
+.menu-item-content {
+    display: flex;
+    flex-direction: column;
+    color: var(--off-white);
+    padding: 1rem;
+}
+
+
+.menu-item-content h3 {
+    text-decoration: underline;
+}
+
+.link {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.tavern-menu-item img {
+    width: 50%;
+}
