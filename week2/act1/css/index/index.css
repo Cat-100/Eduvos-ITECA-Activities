@@ -187,6 +187,7 @@ ul li a:hover {
     width: 250px;
     height: 380px;
     background: linear-gradient(to top , rgb(12, 12, 12) 75% , wheat);
+    border: 1px solid rgba(255, 255, 255, 0.233);
     position: absolute;
     top: -20px;
     left: 870px;
