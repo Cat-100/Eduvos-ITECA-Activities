@@ -1,0 +1,62 @@
+:root {
+    /* ---- Colours --- */
+    --background: rgba(0,0,0,0.5)
+}
+
+*{
+  margin: 0px;
+  padding: 0px;  
+}
+
+
+.main {
+    width: 100%;
+    background: linear-gradient(to top, var(--background)50%,  var(--background)50%) ,  url(/week2/act1/assets/images/landscape.jpg) ;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.navbar {
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon {
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+.logo {
+    color: rgb(36, 178, 197);
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 0.2rem;
+}
+
+
+.menu {
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+.ul {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
