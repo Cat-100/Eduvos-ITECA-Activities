@@ -208,16 +208,23 @@ ul li a:hover {
     padding: 8px;
 }
 
-.form input {
-    width: 24px;
+.form .input-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.form .input-container input {
     height: 35px;
     background: transparent;
     border: 1px solid var(--secondary);
     color: var(--input-text);
     font-size: 15px;
     letter-spacing: 1px;
-    margin-top: 30px;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0.3rem;
+    border-radius: 8px;
+    transition: 0.4 ease-in;
 }
 
 
