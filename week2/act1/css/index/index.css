@@ -137,6 +137,9 @@ ul li a:hover {
     margin: auto;
     color: rgb(185, 185, 185);
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .content .par {
@@ -188,10 +191,12 @@ ul li a:hover {
     height: 380px;
     background: linear-gradient(to top , rgb(12, 12, 12) 75% , wheat);
     border: 1px solid rgba(255, 255, 255, 0.233);
+    /* 
     position: absolute;
     top: -20px;
     left: 870px;
     transform: translate(0% , -5%);
+    */
     border-radius: 10px;
     padding: 25px;
 }
@@ -224,13 +229,14 @@ ul li a:hover {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0.3rem;
     border-radius: 8px;
-    transition: 0.4 ease-in;
+    transition: 0.4s ease;
 }
 
 
-.from input:focus {
+.from .input-container  input:focus {
     outline: none;
 }
+
 ::placeholder {
     font-family: Arial, Helvetica, sans-serif;   
 }
@@ -262,12 +268,17 @@ ul li a:hover {
     text-align: center;
 }
 
+.icons {margin-top: 1rem;}
 .icons i {
     text-decoration: none;
     color: var(--secondary);
     transition: 0.4s ease-in-out;
 }
 
-.icons i:hover {
-    color: var(--primary);
+.icons i:hover {color: var(--primary);}
+
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
 }
