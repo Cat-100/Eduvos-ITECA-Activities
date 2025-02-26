@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/index.css">
+    <title>Through the Frost</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Saskian Louw</h1>
+            <p>Web Developer | FrontEnd | Backend | Tools </p>
+            <nav id="navbar">
+                <div class="hamburger" onclick="toggleMenu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="card">
+            <p class="heading">I am</p>
+            <p>The solution to your problem, through the mist or the frost. Sorting out the blizzards in you business</p>
+        </div>
+        <div class="card">
+            <p class="heading">My experitize</p>
+            <p>Having worked in automation and backend systems, resolving your dbs, servers, and networks</p>
+        </div>
+        <div class="card">
+            <p class="heading">My Passion</p>
+            <p>Helping your business thrive, not surive the storm.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill" id="frontend-card">
+                    <p><span>Frontend</span></p>
+                    <ul class="skills-list-details">
+                        <li>Website (HTML, CSS, JS)</li>
+                        <li>Flutter (Dart)</li>
+                        <li>Wordpress (Woocommerce)</li>
+                    </ul>
+                </div>
+                <div class="skill" id="backend-card">
+                    <p><span>Backend</span></p>
+                    <ul class="skills-list-details" id="backend-skills">
+                        <li>SQL (ms-server, mysql)</li>
+                        <li>PHP</li>
+                        <li>MongoDb</li>
+                        <li>Neo4j</li>
+                    </ul>
+                </div>
+                <div class="skill" id="tools-card">
+                    <p><span>Other Tools</span></p>
+                    <ul class="skills-list-details" id="backend-skills">
+                        <li>Github</li>
+                        <li>Git</li>
+                        <li>XAMPP</li>
+                        <li>Docker</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>SL Projects </h2>
+            <div class="projects-list">
+                <div class="project">
+                    <img src="assets/images/project1.jpg" alt="project 1 - dew sensor">
+                    <h3>Project 1 - To the weather, and beyond</h3>
+                    <p>Measuring the temp, pressure, and altitude is essential in determining and gather info on perfect dew formation</p>
+                    <a href="https://github.com/yourgithub/portfolio">View on Github</a>
+                </div>
+                <div class="project">
+                    <img src="assets/images/icons/loineil-logo.png" alt="project 2 - loineil">
+                    <h3>Project 1 - Loinel</h3>
+                    <p>A website to allow users to get services from our business partner, Lionel Inc</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="contact-details-container">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <ul>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:saskianlouw.werk7@gmail.com">saskianlouw.werk7@gmail.com</a></li>
+                    <li><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/saskian-louw-394366267/">Bio</a></li>
+                    <li><i class="fa-brands fa-github"></i></i><a href="https://github.com/Cat-100">Github Projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Saskian Louw</p>
+        </div>
+    </footer>
+    <script src="src/js/card_flip.js"></script>
+</body>
+</html>
