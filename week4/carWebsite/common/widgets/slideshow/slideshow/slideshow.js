@@ -1,84 +1,110 @@
-export class SlideShow extends HTMLElement {
-    constructor() {
+import { Slide } from "../slide/slide.js";
+
+export class SlideShow extends HTMLElement {  
+  
+  constructor() {
         super();
         this.attachShadow({mode: "open"});
 
         /// Create link to link css
         const styleLink = document.createElement("link");
         styleLink.rel = "stylesheet";
-        styleLink.href = "slide.css";
+        styleLink.href = "./slide.css";
 
         /// Element wrapper
         const wrapper = document.createElement("div");
         wrapper.classList.add("slideshow-widget");
-        wrapper.innerHTML = `     
-            <!-- Slideshow container -->
-            <div class="slideshow-container">
+        
+        /// Create slidshow container
+        const slideshowContainer = document.createElement("div");
+        slideshowContainer.classList.add('slideshow-container');
 
-              <!-- Full-width images with number and caption text -->
-              <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="assets/images/vintage-car.webp" style="width:100%">
-                <div class="text">Caption Text</div>
-              </div>
-            
-              <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="img2.jpg" style="width:100%">
-                <div class="text">Caption Two</div>
-              </div>
-            
-              <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="img3.jpg" style="width:100%">
-                <div class="text">Caption Three</div>
-              </div>
-            
-              <!-- Next and previous buttons -->
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <br>
-          
-          <!-- The dots/circles -->
-          <div style="text-align:center"></div>
+        /// Create dot container to hold the dots
+        const dotContainer = document.createElement('div');
+        dotContainer.classList.add('dot-container');
 
-        `;
+        /// Add container to wrapper
+        wrapper.appendChild(slideshowContainer);
+        wrapper.appendChild(dotContainer);
         /// Insert the "widget"
         this.shadowRoot.append(styleLink, wrapper);
-
-        /// Initialize the widget
-        this.init();
     }
 
-
-    init() {
+    connectedCallback() {
+      this.renderSlides();
     }
 
-    handleSlideShowInit() {
-      let slideIndex = 0;
-      const slides = this.shadowRoot.querySelectorAll(".mySlides");
-      const dots = this.shadowRoot.querySelectorAll(".dot");
+    renderSlides() {
+      /// Get the latest container instance
+      const slideContainer = this.shadowRoot.querySelector('.slideshow-container');
+      const slideItems = this.getElementsByTagName('slide-item');
+      
+      /// Get dotcontainer
+      const dotContainer = this.shadowRoot.querySelector('.dot-container');
+      
+      for (let index = 0; index < slideItems.length; index++) {
+        /// Generate Slide
+        this.createNewSlide( slideItems[index] , index, slideContainer);
+        /// Generate Dot
+        this.createNewSlidDot(index , dotContainer);
+      }
 
-      const showSlides = (n) => {
-          slides.forEach(slide => slide.style.display = "none");
-          dots.forEach(dot => dot.classList.remove("active"));
+      /// SHow the first slide
+      this.showSlide(0);
+    }
 
-            slideIndex = (n + slides.length) % slides.length;
-            slides[slideIndex].style.display = "block";
-            dots[slideIndex].classList.add("active");
-        };
+    createNewSlidDot(index, container) {
+      const span = document.createElement('span');
+      span.classList.add("dot")
+      span.onclick(() => this.showSlide(index));
 
-        /// Navigation
-        this.shadowRoot.querySelector(".prev").addEventListener("click", () => showSlides(slideIndex - 1));
-        this.shadowRoot.querySelector(".next").addEventListener("click", () => showSlides(slideIndex + 1));
-        dots.forEach((dot, i) => dot.addEventListener("click", () => showSlides(i)));
+      container.appendChild(span);
+    }
 
-        /// Auto-start
-      showSlides(slideIndex);
+    // Next/previous controls
+    plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    
+    }
+
+    createNewSlide(slideItem ,currentIndex ,  container ) {
+      /// Get attributes
+      const numberText = currentIndex +  1 ;
+      const src  = slideItem.getAttribute('src');
+      const text = slideItem.getAttribute('text');
+      
+      /// create a new slide for the container
+      const newSlide = new Slide();
+      
+      /// Generate new slide from its params 
+      newSlide.generateFromParams(numberText, src , text);
+      
+      /// Add to slide conatiner
+      container.appendChild(newSlide);
     }
 }
 
 
-/// Register the component
+/// Register the Widget
 customElements.define("car-slideshow" , SlideShow);
